@@ -1,0 +1,553 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1620"
+  role="img" aria-labelledby="title description">
+  <title id="title">AI video generation pipeline v3 workflow</title>
+  <desc id="description">
+    A six-row production workflow from intake and rights review through reference
+    intelligence, creative pre-production, structure approval, generation control,
+    delivery and disclosure, and guarded publication. Four human approval gates
+    labelled A, B, C, and D authorize downstream cost and exposure. Rejection
+    arrows return to the nearest owning stage. A declared degradation ladder
+    provides an escape path so that one unachievable shot cannot block a release.
+    A separate strip shows the per-shot lifecycle, which advances independently of
+    the project phase. A control plane panel enforces the two-level state machine,
+    typed dependency invalidation, the continuity ledger, budget admission and
+    escrow, typed human direction, and provenance with synthetic media disclosure.
+  </desc>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4"
+      orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,8 L10,4 z" fill="#475569" />
+    </marker>
+    <marker id="arrow-reject" markerWidth="10" markerHeight="8" refX="9"
+      refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,8 L10,4 z" fill="#B91C1C" />
+    </marker>
+    <marker id="arrow-degrade" markerWidth="10" markerHeight="8" refX="9"
+      refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,8 L10,4 z" fill="#C2410C" />
+    </marker>
+    <marker id="arrow-control" markerWidth="10" markerHeight="8" refX="9"
+      refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,8 L10,4 z" fill="#64748B" />
+    </marker>
+    <marker id="arrow-small" markerWidth="8" markerHeight="7" refX="7" refY="3.5"
+      orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,7 L8,3.5 z" fill="#64748B" />
+    </marker>
+    <filter id="shadow" x="-10%" y="-15%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A"
+        flood-opacity="0.12" />
+    </filter>
+    <style>
+      .title { font: 700 30px Georgia, serif; fill: #F8FAFC; }
+      .subtitle { font: 400 15px Verdana, sans-serif; fill: #CBD5E1; }
+      .section { font: 700 13px Verdana, sans-serif; fill: #475569;
+        letter-spacing: 1.2px; }
+      .node-title { font: 700 14px Verdana, sans-serif; fill: #0F172A; }
+      .node-copy { font: 400 11px Verdana, sans-serif; fill: #475569; }
+      .small { font: 400 10px Verdana, sans-serif; fill: #64748B; }
+      .legend { font: 600 11px Verdana, sans-serif; fill: #E2E8F0; }
+      .gate-title { font: 700 14px Verdana, sans-serif; fill: #92400E; }
+      .publish-title { font: 700 14px Verdana, sans-serif; fill: #991B1B; }
+      .degrade-title { font: 700 14px Verdana, sans-serif; fill: #9A3412; }
+      .degrade-copy { font: 400 11px Verdana, sans-serif; fill: #7C2D12; }
+      .badge { font: 700 9px Verdana, sans-serif; fill: #F8FAFC; }
+      .pill { font: 700 9px Verdana, sans-serif; fill: #0F172A; }
+      .control-title { font: 700 15px Verdana, sans-serif; fill: #F8FAFC; }
+      .control-copy { font: 400 11px Verdana, sans-serif; fill: #CBD5E1; }
+      .flow { fill: none; stroke: #475569; stroke-width: 2.5;
+        marker-end: url(#arrow); }
+      .reject { fill: none; stroke: #B91C1C; stroke-width: 2;
+        stroke-dasharray: 7 5; marker-end: url(#arrow-reject); }
+      .degrade { fill: none; stroke: #C2410C; stroke-width: 2;
+        stroke-dasharray: 3 4; marker-end: url(#arrow-degrade); }
+      .control-link { fill: none; stroke: #64748B; stroke-width: 1.5;
+        stroke-dasharray: 4 5; marker-end: url(#arrow-control); }
+      .hop { fill: none; stroke: #64748B; stroke-width: 1.5;
+        marker-end: url(#arrow-small); }
+    </style>
+  </defs>
+
+  <rect width="1800" height="1620" fill="#F8FAFC" />
+  <rect width="1800" height="116" fill="#0F172A" />
+  <text x="50" y="45" class="title">AI video generation pipeline v3</text>
+  <text x="50" y="78" class="subtitle">
+    Two-level state machine, typed invalidation, continuity ledger, budget admission, and four human gates
+  </text>
+
+  <g aria-label="Legend">
+    <rect x="880" y="26" width="18" height="18" rx="3" fill="#EFF6FF"
+      stroke="#2563EB" />
+    <text x="906" y="40" class="legend">Automation</text>
+    <rect x="1012" y="26" width="18" height="18" rx="3" fill="#F0FDFA"
+      stroke="#0F766E" />
+    <text x="1038" y="40" class="legend">Agent decision</text>
+    <rect x="1166" y="26" width="18" height="18" rx="3" fill="#FFFBEB"
+      stroke="#B45309" stroke-width="2" />
+    <text x="1192" y="40" class="legend">Human gate</text>
+    <rect x="1300" y="26" width="18" height="18" rx="3" fill="#FEF2F2"
+      stroke="#B91C1C" />
+    <text x="1326" y="40" class="legend">Publish action</text>
+    <line x1="1440" y1="35" x2="1476" y2="35" class="reject" />
+    <text x="1484" y="40" class="legend">Reject</text>
+    <line x1="1560" y1="35" x2="1596" y2="35" class="degrade" />
+    <text x="1604" y="40" class="legend">Degrade</text>
+  </g>
+
+  <!-- ================= ROW 1 ================= -->
+  <text x="50" y="150" class="section">GOVERNANCE AND REFERENCE INTELLIGENCE</text>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="168" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <text x="152" y="197" text-anchor="middle" class="node-title">0. Intake and rights</text>
+    <text x="152" y="222" text-anchor="middle" class="node-copy">Validate story, shots, consent,</text>
+    <text x="152" y="240" text-anchor="middle" class="node-copy">licences, privacy, and budget</text>
+    <text x="152" y="260" text-anchor="middle" class="small">Fail closed before acquisition</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="290" y="168" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <text x="392" y="197" text-anchor="middle" class="node-title">1. Reference ingest</text>
+    <text x="392" y="222" text-anchor="middle" class="node-copy">Acquire permitted media and</text>
+    <text x="392" y="240" text-anchor="middle" class="node-copy">build normalized proxies</text>
+    <text x="392" y="260" text-anchor="middle" class="small">Hash, inspect, retain by policy</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="530" y="168" width="205" height="104" rx="8" fill="#F0FDFA"
+      stroke="#0F766E" stroke-width="2" />
+    <text x="632" y="197" text-anchor="middle" class="node-title">2. Segment discovery</text>
+    <text x="632" y="222" text-anchor="middle" class="node-copy">Rank hint, chapter, cut,</text>
+    <text x="632" y="240" text-anchor="middle" class="node-copy">transcript, window candidates</text>
+    <text x="632" y="260" text-anchor="middle" class="small">No match is a valid outcome</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="770" y="168" width="205" height="104" rx="8" fill="#F0FDFA"
+      stroke="#0F766E" stroke-width="2" />
+    <text x="872" y="197" text-anchor="middle" class="node-title">3. Film analysis</text>
+    <text x="872" y="222" text-anchor="middle" class="node-copy">Keyframes, camera, light, motion,</text>
+    <text x="872" y="240" text-anchor="middle" class="node-copy">sound, and transitions</text>
+    <text x="872" y="260" text-anchor="middle" class="small">Craft versus protected expression</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1010" y="168" width="205" height="104" rx="8" fill="#F0FDFA"
+      stroke="#0F766E" stroke-width="2" />
+    <text x="1112" y="197" text-anchor="middle" class="node-title">4. Bible and ledger</text>
+    <text x="1112" y="222" text-anchor="middle" class="node-copy">Passports with invariant and</text>
+    <text x="1112" y="240" text-anchor="middle" class="node-copy">stateful attributes declared</text>
+    <text x="1112" y="260" text-anchor="middle" class="small">Lock version, initialize state</text>
+  </g>
+
+  <path d="M255 220 H288" class="flow" />
+  <path d="M495 220 H528" class="flow" />
+  <path d="M735 220 H768" class="flow" />
+  <path d="M975 220 H1008" class="flow" />
+
+  <!-- ================= ROW 2 ================= -->
+  <text x="50" y="372" class="section">CREATIVE PRE-PRODUCTION</text>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="390" width="205" height="104" rx="8" fill="#F0FDFA"
+      stroke="#0F766E" stroke-width="2" />
+    <text x="152" y="419" text-anchor="middle" class="node-title">5. Shot design</text>
+    <text x="152" y="444" text-anchor="middle" class="node-copy">Preserve narrative purpose,</text>
+    <text x="152" y="462" text-anchor="middle" class="node-copy">design original treatment</text>
+    <text x="152" y="482" text-anchor="middle" class="small">Bounded critic loop</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="290" y="390" width="205" height="104" rx="8" fill="#F0FDFA"
+      stroke="#0F766E" stroke-width="2" />
+    <text x="392" y="419" text-anchor="middle" class="node-title">6. Wireframes</text>
+    <text x="392" y="444" text-anchor="middle" class="node-copy">Blocking, camera and subject</text>
+    <text x="392" y="462" text-anchor="middle" class="node-copy">motion, transitions, handles</text>
+    <text x="392" y="482" text-anchor="middle" class="small">Low-cost sketches</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="530" y="390" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <rect x="695" y="398" width="34" height="17" rx="8" fill="#1E293B" />
+    <text x="712" y="411" text-anchor="middle" class="badge">v3</text>
+    <text x="622" y="419" text-anchor="middle" class="node-title">7. Ledger precheck</text>
+    <text x="632" y="444" text-anchor="middle" class="node-copy">Propagate entity state over</text>
+    <text x="632" y="462" text-anchor="middle" class="node-copy">story time, find contradictions</text>
+    <text x="632" y="482" text-anchor="middle" class="small">Symbolic, before any spending</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="770" y="390" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <rect x="935" y="398" width="34" height="17" rx="8" fill="#1E293B" />
+    <text x="952" y="411" text-anchor="middle" class="badge">v3</text>
+    <text x="862" y="419" text-anchor="middle" class="node-title">8. Locale pre-flight</text>
+    <text x="872" y="444" text-anchor="middle" class="node-copy">Measure draft speech per beat</text>
+    <text x="872" y="462" text-anchor="middle" class="node-copy">in every delivery locale</text>
+    <text x="872" y="482" text-anchor="middle" class="small">Budget the longest language</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1010" y="390" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <text x="1112" y="419" text-anchor="middle" class="node-title">9. Animatic</text>
+    <text x="1112" y="444" text-anchor="middle" class="node-copy">Timeline, temporary sound,</text>
+    <text x="1112" y="462" text-anchor="middle" class="node-copy">worst-case locale narration</text>
+    <text x="1112" y="482" text-anchor="middle" class="small">Edit fingerprint computed</text>
+  </g>
+
+  <path d="M1112 272 V320 H230 V388" class="flow" />
+  <path d="M255 442 H288" class="flow" />
+  <path d="M495 442 H528" class="flow" />
+  <path d="M735 442 H768" class="flow" />
+  <path d="M975 442 H1008" class="flow" />
+
+  <!-- ================= ROW 3 ================= -->
+  <text x="50" y="594" class="section">STRUCTURE APPROVAL AND GENERATION</text>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="612" width="205" height="104" rx="8" fill="#FFFBEB"
+      stroke="#B45309" stroke-width="3" />
+    <text x="152" y="641" text-anchor="middle" class="gate-title">Gate A</text>
+    <text x="152" y="666" text-anchor="middle" class="node-copy">Human structure approval on</text>
+    <text x="152" y="684" text-anchor="middle" class="node-copy">locale-feasible timing</text>
+    <text x="152" y="704" text-anchor="middle" class="small">Unlocks paid generation</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="290" y="612" width="205" height="104" rx="8" fill="#F0FDFA"
+      stroke="#0F766E" stroke-width="2" />
+    <text x="392" y="641" text-anchor="middle" class="node-title">10. Style frames</text>
+    <text x="392" y="666" text-anchor="middle" class="node-copy">Colour, detail, identity, and</text>
+    <text x="392" y="684" text-anchor="middle" class="node-copy">lighting conditioning</text>
+    <text x="392" y="704" text-anchor="middle" class="small">Approved generation inputs</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="530" y="612" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <rect x="695" y="620" width="34" height="17" rx="8" fill="#1E293B" />
+    <text x="712" y="633" text-anchor="middle" class="badge">v3</text>
+    <text x="622" y="641" text-anchor="middle" class="node-title">11. Route and admit</text>
+    <text x="632" y="666" text-anchor="middle" class="node-copy">Capability match, then worst-case</text>
+    <text x="632" y="684" text-anchor="middle" class="node-copy">cost admission and escrow</text>
+    <text x="632" y="704" text-anchor="middle" class="small">Refuse before overspending</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="770" y="612" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <text x="872" y="641" text-anchor="middle" class="node-title">12. Clip generation</text>
+    <text x="872" y="666" text-anchor="middle" class="node-copy">Minimum useful takes with</text>
+    <text x="872" y="684" text-anchor="middle" class="node-copy">full request lineage</text>
+    <text x="872" y="704" text-anchor="middle" class="small">Revalidate inputs at commit</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1010" y="612" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <text x="1112" y="641" text-anchor="middle" class="node-title">13. Automated QC</text>
+    <text x="1112" y="666" text-anchor="middle" class="node-copy">Deterministic checks, then</text>
+    <text x="1112" y="684" text-anchor="middle" class="node-copy">calibrated and originality checks</text>
+    <text x="1112" y="704" text-anchor="middle" class="small">Expected ledger state supplied</text>
+  </g>
+
+  <path d="M1112 494 V542 H230 V610" class="flow" />
+  <path d="M255 664 H288" class="flow" />
+  <path d="M495 664 H528" class="flow" />
+  <path d="M735 664 H768" class="flow" />
+  <path d="M975 664 H1008" class="flow" />
+
+  <path d="M50 664 H32 V520 H392 V496" class="reject" />
+  <text x="404" y="514" class="small">Gate A reject: revise only the affected shots</text>
+
+  <path d="M1112 612 V588 H872 V610" class="reject" />
+  <text x="992" y="580" text-anchor="middle" class="small">Retry inside the shot budget and stop-loss</text>
+
+  <!-- ================= ROW 4 ================= -->
+  <text x="50" y="816" class="section">EDITORIAL AND POST-PRODUCTION</text>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="834" width="205" height="104" rx="8" fill="#FFFBEB"
+      stroke="#B45309" stroke-width="3" />
+    <text x="152" y="863" text-anchor="middle" class="gate-title">Gate B</text>
+    <text x="152" y="888" text-anchor="middle" class="node-copy">Human clip approval in</text>
+    <text x="152" y="906" text-anchor="middle" class="node-copy">adjacent-shot context</text>
+    <text x="152" y="926" text-anchor="middle" class="small">Recorded per shot</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="290" y="834" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <text x="392" y="863" text-anchor="middle" class="node-title">14. Picture lock</text>
+    <text x="392" y="888" text-anchor="middle" class="node-copy">Clips, transitions, handles,</text>
+    <text x="392" y="906" text-anchor="middle" class="node-copy">markers, source timecodes</text>
+    <text x="392" y="926" text-anchor="middle" class="small">Deterministic render profile</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="530" y="834" width="205" height="104" rx="8" fill="#F0FDFA"
+      stroke="#0F766E" stroke-width="2" />
+    <text x="632" y="863" text-anchor="middle" class="node-title">15. Audio and locales</text>
+    <text x="632" y="888" text-anchor="middle" class="node-copy">English, Putonghua, Cantonese</text>
+    <text x="632" y="906" text-anchor="middle" class="node-copy">from one approved intent script</text>
+    <text x="632" y="926" text-anchor="middle" class="small">Consent required for voices</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="770" y="834" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <text x="872" y="863" text-anchor="middle" class="node-title">16. Subtitles and mix</text>
+    <text x="872" y="888" text-anchor="middle" class="node-copy">WebVTT and SRT, safe areas,</text>
+    <text x="872" y="906" text-anchor="middle" class="node-copy">speech sync, loudness</text>
+    <text x="872" y="926" text-anchor="middle" class="small">Measured per locale</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1010" y="834" width="205" height="104" rx="8" fill="#F0FDFA"
+      stroke="#0F766E" stroke-width="2" />
+    <text x="1112" y="863" text-anchor="middle" class="node-title">17. Package and metadata</text>
+    <text x="1112" y="888" text-anchor="middle" class="node-copy">Highlight, logo, credits, egg,</text>
+    <text x="1112" y="906" text-anchor="middle" class="node-copy">end card, chapters, thumbnail</text>
+    <text x="1112" y="926" text-anchor="middle" class="small">Chapter and tag rules validated</text>
+  </g>
+
+  <path d="M1112 716 V764 H230 V832" class="flow" />
+  <path d="M255 886 H288" class="flow" />
+  <path d="M495 886 H528" class="flow" />
+  <path d="M735 886 H768" class="flow" />
+  <path d="M975 886 H1008" class="flow" />
+
+  <path d="M50 886 H32 V742 H872 V718" class="reject" />
+  <text x="884" y="736" class="small">Gate B reject: regenerate or reselect one shot</text>
+
+  <!-- ================= ROW 5 ================= -->
+  <text x="50" y="1038" class="section">DELIVERY, DISCLOSURE, AND UPLOAD</text>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="1056" width="205" height="104" rx="8" fill="#F0FDFA"
+      stroke="#0F766E" stroke-width="2" />
+    <rect x="215" y="1064" width="34" height="17" rx="8" fill="#1E293B" />
+    <text x="232" y="1077" text-anchor="middle" class="badge">v3</text>
+    <text x="142" y="1085" text-anchor="middle" class="node-title">18. Originality</text>
+    <text x="152" y="1110" text-anchor="middle" class="node-copy">Bound similarity to references,</text>
+    <text x="152" y="1128" text-anchor="middle" class="node-copy">screen likeness, set disclosure</text>
+    <text x="152" y="1148" text-anchor="middle" class="small">Legal findings never auto-waived</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="290" y="1056" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <text x="392" y="1085" text-anchor="middle" class="node-title">19. Master QC</text>
+    <text x="392" y="1110" text-anchor="middle" class="node-copy">Decode, streams, timing, rights,</text>
+    <text x="392" y="1128" text-anchor="middle" class="node-copy">captions, chapters, loudness</text>
+    <text x="392" y="1148" text-anchor="middle" class="small">Reproducible render verified</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="530" y="1056" width="205" height="104" rx="8" fill="#FFFBEB"
+      stroke="#B45309" stroke-width="3" />
+    <text x="632" y="1085" text-anchor="middle" class="gate-title">Gate C</text>
+    <text x="632" y="1110" text-anchor="middle" class="node-copy">Human master approval with</text>
+    <text x="632" y="1128" text-anchor="middle" class="node-copy">deviations and cost in view</text>
+    <text x="632" y="1148" text-anchor="middle" class="small">Unlocks non-public upload</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="770" y="1056" width="205" height="104" rx="8" fill="#FEF2F2"
+      stroke="#B91C1C" stroke-width="2" />
+    <text x="872" y="1085" text-anchor="middle" class="publish-title">20. Guarded upload</text>
+    <text x="872" y="1110" text-anchor="middle" class="node-copy">Intent key first, then resumable</text>
+    <text x="872" y="1128" text-anchor="middle" class="node-copy">private or unlisted transfer</text>
+    <text x="872" y="1148" text-anchor="middle" class="small">Disclosure applied at upload</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1010" y="1056" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <text x="1112" y="1085" text-anchor="middle" class="node-title">21. Remote verification</text>
+    <text x="1112" y="1110" text-anchor="middle" class="node-copy">Duration, captions, thumbnail,</text>
+    <text x="1112" y="1128" text-anchor="middle" class="node-copy">metadata, visibility, disclosure</text>
+    <text x="1112" y="1148" text-anchor="middle" class="small">Read platform state back</text>
+  </g>
+
+  <path d="M1112 938 V986 H230 V1054" class="flow" />
+  <path d="M255 1108 H288" class="flow" />
+  <path d="M495 1108 H528" class="flow" />
+  <path d="M735 1108 H768" class="flow" />
+  <path d="M975 1108 H1008" class="flow" />
+
+  <path d="M632 1056 V1012 H1160 V940" class="reject" />
+  <text x="650" y="1006" class="small">Gate C reject: repair the owning delivery stage</text>
+
+  <!-- ================= ROW 6 ================= -->
+  <text x="50" y="1260" class="section">GUARDED PUBLICATION AND ESCAPE PATH</text>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="1278" width="205" height="104" rx="8" fill="#FFFBEB"
+      stroke="#B45309" stroke-width="3" />
+    <text x="152" y="1307" text-anchor="middle" class="gate-title">Gate D</text>
+    <text x="152" y="1332" text-anchor="middle" class="node-copy">Human publish authorization</text>
+    <text x="152" y="1350" text-anchor="middle" class="node-copy">bound to the uploaded bytes</text>
+    <text x="152" y="1370" text-anchor="middle" class="small">The true point of no return</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="290" y="1278" width="205" height="104" rx="8" fill="#FEF2F2"
+      stroke="#B91C1C" stroke-width="3" />
+    <text x="392" y="1307" text-anchor="middle" class="publish-title">22. Public release</text>
+    <text x="392" y="1332" text-anchor="middle" class="node-copy">Change visibility and store</text>
+    <text x="392" y="1350" text-anchor="middle" class="node-copy">the publication receipt</text>
+    <text x="392" y="1370" text-anchor="middle" class="small">Audited external side effect</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="530" y="1278" width="205" height="104" rx="8" fill="#EFF6FF"
+      stroke="#2563EB" stroke-width="2" />
+    <text x="632" y="1307" text-anchor="middle" class="node-title">23. Post-publish check</text>
+    <text x="632" y="1332" text-anchor="middle" class="node-copy">Verify public state, run manual</text>
+    <text x="632" y="1350" text-anchor="middle" class="node-copy">runbook, keep rollback ready</text>
+    <text x="632" y="1370" text-anchor="middle" class="small">Views and indexing are final</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="770" y="1278" width="445" height="104" rx="8" fill="#FFF7ED"
+      stroke="#C2410C" stroke-width="2" stroke-dasharray="6 4" />
+    <rect x="1177" y="1286" width="34" height="17" rx="8" fill="#1E293B" />
+    <text x="1194" y="1299" text-anchor="middle" class="badge">v3</text>
+    <text x="982" y="1307" text-anchor="middle" class="degrade-title">Degradation ladder</text>
+    <text x="992" y="1332" text-anchor="middle" class="degrade-copy">Simplify motion, reroute, animate a still, substitute coverage, cut and retime,</text>
+    <text x="992" y="1350" text-anchor="middle" class="degrade-copy">then escalate as a production decision</text>
+    <text x="992" y="1370" text-anchor="middle" class="small">Every step needs an approval level and is recorded as a named deviation</text>
+  </g>
+
+  <path d="M1112 1160 V1208 H230 V1276" class="flow" />
+  <path d="M255 1330 H288" class="flow" />
+  <path d="M495 1330 H528" class="flow" />
+
+  <path d="M1160 1160 V1192 H872 V1162" class="reject" />
+  <text x="1016" y="1186" text-anchor="middle" class="small">Verification failure stays non-public</text>
+
+  <path d="M850 1244 V1276" class="degrade" />
+  <path d="M992 1244 V1276" class="degrade" />
+  <path d="M1134 1244 V1276" class="degrade" />
+  <text x="992" y="1236" text-anchor="middle" class="small">Reachable from generation, quality control, and delivery stages</text>
+
+  <!-- ================= PER-SHOT LIFECYCLE ================= -->
+  <text x="50" y="1444" class="section">PER-SHOT LIFECYCLE, ADVANCING INDEPENDENTLY OF PROJECT PHASE</text>
+
+  <g aria-label="Per-shot lifecycle states">
+    <rect x="50" y="1462" width="100" height="40" rx="6" fill="#E2E8F0" stroke="#94A3B8" />
+    <text x="100" y="1487" text-anchor="middle" class="pill">DRAFT</text>
+    <rect x="168" y="1462" width="100" height="40" rx="6" fill="#E2E8F0" stroke="#94A3B8" />
+    <text x="218" y="1487" text-anchor="middle" class="pill">DESIGNED</text>
+    <rect x="286" y="1462" width="100" height="40" rx="6" fill="#E2E8F0" stroke="#94A3B8" />
+    <text x="336" y="1487" text-anchor="middle" class="pill">BOARDED</text>
+    <rect x="404" y="1462" width="100" height="40" rx="6" fill="#FFFBEB" stroke="#B45309" />
+    <text x="454" y="1487" text-anchor="middle" class="pill">IN_ANIMATIC</text>
+    <rect x="522" y="1462" width="100" height="40" rx="6" fill="#E2E8F0" stroke="#94A3B8" />
+    <text x="572" y="1487" text-anchor="middle" class="pill">CONDITIONED</text>
+    <rect x="640" y="1462" width="100" height="40" rx="6" fill="#E2E8F0" stroke="#94A3B8" />
+    <text x="690" y="1487" text-anchor="middle" class="pill">GENERATING</text>
+    <rect x="758" y="1462" width="100" height="40" rx="6" fill="#E2E8F0" stroke="#94A3B8" />
+    <text x="808" y="1487" text-anchor="middle" class="pill">QC</text>
+    <rect x="876" y="1462" width="100" height="40" rx="6" fill="#E2E8F0" stroke="#94A3B8" />
+    <text x="926" y="1487" text-anchor="middle" class="pill">CANDIDATE</text>
+    <rect x="994" y="1462" width="100" height="40" rx="6" fill="#FFFBEB" stroke="#B45309" />
+    <text x="1044" y="1487" text-anchor="middle" class="pill">APPROVED</text>
+    <rect x="1112" y="1462" width="100" height="40" rx="6" fill="#E2E8F0" stroke="#94A3B8" />
+    <text x="1162" y="1487" text-anchor="middle" class="pill">LOCKED</text>
+
+    <path d="M150 1482 H166" class="hop" />
+    <path d="M268 1482 H284" class="hop" />
+    <path d="M386 1482 H402" class="hop" />
+    <path d="M504 1482 H520" class="hop" />
+    <path d="M622 1482 H638" class="hop" />
+    <path d="M740 1482 H756" class="hop" />
+    <path d="M858 1482 H874" class="hop" />
+    <path d="M976 1482 H992" class="hop" />
+    <path d="M1094 1482 H1110" class="hop" />
+  </g>
+
+  <text x="50" y="1528" class="small">
+    Side states reachable from most stages: BLOCKED, DEGRADED, and CUT. Regression is cheap; only advancement is gated.
+  </text>
+
+  <!-- ================= CONTROL PLANE ================= -->
+  <g aria-label="Control plane">
+    <rect x="1270" y="168" width="480" height="1214" rx="12" fill="#1E293B"
+      stroke="#0F172A" stroke-width="2" />
+    <text x="1300" y="207" class="control-title">CONTROL PLANE</text>
+    <text x="1300" y="231" class="control-copy">Active across every row</text>
+
+    <rect x="1300" y="260" width="420" height="140" rx="8" fill="#334155" />
+    <text x="1325" y="290" class="control-title">Workflow orchestrator</text>
+    <text x="1325" y="315" class="control-copy">Project phases and shot lifecycles</text>
+    <text x="1325" y="336" class="control-copy">Gate readiness and scoped coverage</text>
+    <text x="1325" y="357" class="control-copy">Leases, heartbeats, fencing tokens</text>
+    <text x="1325" y="378" class="control-copy">Idempotent operation keys and resume</text>
+
+    <rect x="1300" y="420" width="420" height="140" rx="8" fill="#334155" />
+    <text x="1325" y="450" class="control-title">Dependency graph service</text>
+    <text x="1325" y="475" class="control-copy">Typed edges and change classes</text>
+    <text x="1325" y="496" class="control-copy">Invalid, review, or intact propagation</text>
+    <text x="1325" y="517" class="control-copy">Immutable impact reports</text>
+    <text x="1325" y="538" class="control-copy">Revoked versus merely stale approvals</text>
+
+    <rect x="1300" y="580" width="420" height="140" rx="8" fill="#334155" />
+    <text x="1325" y="610" class="control-title">Continuity ledger</text>
+    <text x="1325" y="635" class="control-copy">Entity state over story time</text>
+    <text x="1325" y="656" class="control-copy">Preconditions and declared effects</text>
+    <text x="1325" y="677" class="control-copy">Contradictions found before spending</text>
+    <text x="1325" y="698" class="control-copy">Expected state feeds perceptual checks</text>
+
+    <rect x="1300" y="740" width="420" height="140" rx="8" fill="#334155" />
+    <text x="1325" y="770" class="control-title">Budget engine</text>
+    <text x="1325" y="795" class="control-copy">Per-shot envelopes from priority</text>
+    <text x="1325" y="816" class="control-copy">Worst-case admission and escrow</text>
+    <text x="1325" y="837" class="control-copy">Commit, reconcile, and release</text>
+    <text x="1325" y="858" class="control-copy">Stop-loss and a measured rate card</text>
+
+    <rect x="1300" y="900" width="420" height="140" rx="8" fill="#334155" />
+    <text x="1325" y="930" class="control-title">Direction and learning</text>
+    <text x="1325" y="955" class="control-copy">Closed set of typed directives</text>
+    <text x="1325" y="976" class="control-copy">Free text is rationale, never payload</text>
+    <text x="1325" y="997" class="control-copy">Rejection reason taxonomy</text>
+    <text x="1325" y="1018" class="control-copy">Capped, revocable promoted constraints</text>
+
+    <rect x="1300" y="1060" width="420" height="140" rx="8" fill="#334155" />
+    <text x="1325" y="1090" class="control-title">Provenance and disclosure</text>
+    <text x="1325" y="1115" class="control-copy">Artifact hashes and edit fingerprints</text>
+    <text x="1325" y="1136" class="control-copy">Rights, consent, and retention policy</text>
+    <text x="1325" y="1157" class="control-copy">Synthetic media disclosure on record</text>
+    <text x="1325" y="1178" class="control-copy">Redacted, verifiable audit bundle</text>
+
+    <rect x="1300" y="1230" width="420" height="120" rx="8" fill="#0F172A"
+      stroke="#94A3B8" />
+    <text x="1510" y="1260" text-anchor="middle" class="control-title">Core invariants</text>
+    <text x="1510" y="1285" text-anchor="middle" class="control-copy">Approval binds an edit fingerprint plus</text>
+    <text x="1510" y="1303" text-anchor="middle" class="control-copy">the content hashes actually reviewed.</text>
+    <text x="1510" y="1324" text-anchor="middle" class="control-copy">No paid generation before Gate A.</text>
+    <text x="1510" y="1342" text-anchor="middle" class="control-copy">No public visibility before Gate D.</text>
+  </g>
+
+  <path d="M1268 330 H1220" class="control-link" />
+  <path d="M1268 490 H1220" class="control-link" />
+  <path d="M1268 650 H1220" class="control-link" />
+  <path d="M1268 810 H1220" class="control-link" />
+  <path d="M1268 970 H1220" class="control-link" />
+  <path d="M1268 1130 H1220" class="control-link" />
+  <path d="M1268 1290 H1220" class="control-link" />
+
+  <line x1="50" y1="1560" x2="1750" y2="1560" stroke="#CBD5E1" />
+  <text x="50" y="1590" class="small">
+    video-pipeline-workflow.svg | Video Flow v3 | August 19, 2026
+  </text>
+  <text x="1750" y="1590" text-anchor="end" class="small">
+    Solid arrows: forward progress | Dashed red: reject or repair | Dotted orange: declared degradation
+  </text>
+</svg>
