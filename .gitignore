@@ -1,1 +1,6 @@
 .copilot-specs-cache/
+.env
+*.pdf
+*.mp3
+__pycache__/*
+.gitignore
