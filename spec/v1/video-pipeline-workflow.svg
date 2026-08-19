@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,8 L10,4 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,8 L10,4 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,8 L10,4 z" fill="#f87171"/>
+    </marker>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="800" y="48" text-anchor="middle" fill="#f8fafc" font-size="28" font-weight="700">AI Video Generation Pipeline — Workflow</text>
+  <text x="800" y="78" text-anchor="middle" fill="#94a3b8" font-size="15">From Storyline + References → Publish-Ready Multi-Language Master</text>
+
+  <!-- ========== ROW 1: Pre-Production ========== -->
+  <text x="40" y="120" fill="#64748b" font-size="13" font-weight="600" letter-spacing="1">PRE-PRODUCTION</text>
+
+  <!-- 0 Input -->
+  <rect x="40" y="135" width="180" height="88" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="130" y="165" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="700">0. INPUT</text>
+  <text x="130" y="188" text-anchor="middle" fill="#e2e8f0" font-size="12">Storyline + Shots</text>
+  <text x="130" y="206" text-anchor="middle" fill="#94a3b8" font-size="11">+ YouTube Refs</text>
+
+  <!-- 1 Reference -->
+  <rect x="260" y="135" width="180" height="88" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="350" y="165" text-anchor="middle" fill="#a78bfa" font-size="14" font-weight="700">1. REFERENCE</text>
+  <text x="350" y="188" text-anchor="middle" fill="#e2e8f0" font-size="12">Semantic Extraction</text>
+  <text x="350" y="206" text-anchor="middle" fill="#94a3b8" font-size="11">CLIP + Whisper + Cut</text>
+
+  <!-- 2 Visual Bible -->
+  <rect x="480" y="135" width="180" height="88" rx="12" fill="#1e293b" stroke="#34d399" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="570" y="165" text-anchor="middle" fill="#34d399" font-size="14" font-weight="700">2. VISUAL BIBLE</text>
+  <text x="570" y="188" text-anchor="middle" fill="#e2e8f0" font-size="12">Asset Passports</text>
+  <text x="570" y="206" text-anchor="middle" fill="#94a3b8" font-size="11">Characters / Props / Style</text>
+
+  <!-- 3 Wireframe -->
+  <rect x="700" y="135" width="180" height="88" rx="12" fill="#1e293b" stroke="#fbbf24" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="790" y="165" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">3. WIREFRAME</text>
+  <text x="790" y="188" text-anchor="middle" fill="#e2e8f0" font-size="12">Keyframes + Transitions</text>
+  <text x="790" y="206" text-anchor="middle" fill="#94a3b8" font-size="11">B&amp;W Sketches</text>
+
+  <!-- 4 Gate A -->
+  <rect x="920" y="135" width="180" height="88" rx="12" fill="#1e293b" stroke="#f87171" stroke-width="3" filter="url(#shadow)"/>
+  <text x="1010" y="160" text-anchor="middle" fill="#f87171" font-size="13" font-weight="700">4. HUMAN GATE A</text>
+  <text x="1010" y="182" text-anchor="middle" fill="#e2e8f0" font-size="12">Approve Animatic</text>
+  <text x="1010" y="200" text-anchor="middle" fill="#fca5a5" font-size="11">HARD GATE</text>
+  <text x="1010" y="215" text-anchor="middle" fill="#94a3b8" font-size="10">Before any video gen</text>
+
+  <!-- Arrows Row 1 -->
+  <line x1="220" y1="179" x2="260" y2="179" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="440" y1="179" x2="480" y2="179" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="660" y1="179" x2="700" y2="179" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="880" y1="179" x2="920" y2="179" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Reject loop from Gate A -->
+  <path d="M1010,223 L1010,255 L790,255 L790,223" fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-red)"/>
+  <text x="900" y="248" fill="#f87171" font-size="11" font-weight="600">Reject → Redesign</text>
+
+  <!-- ========== ROW 2: Production ========== -->
+  <text x="40" y="310" fill="#64748b" font-size="13" font-weight="600" letter-spacing="1">PRODUCTION</text>
+
+  <!-- 5 Detail Style -->
+  <rect x="40" y="325" width="180" height="88" rx="12" fill="#1e293b" stroke="#fb923c" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="130" y="355" text-anchor="middle" fill="#fb923c" font-size="14" font-weight="700">5. DETAIL / STYLE</text>
+  <text x="130" y="378" text-anchor="middle" fill="#e2e8f0" font-size="12">Color Keyframes</text>
+  <text x="130" y="396" text-anchor="middle" fill="#94a3b8" font-size="11">From Wireframes</text>
+
+  <!-- 6 Video Gen -->
+  <rect x="260" y="325" width="180" height="88" rx="12" fill="#1e293b" stroke="#c084fc" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="350" y="355" text-anchor="middle" fill="#c084fc" font-size="14" font-weight="700">6. VIDEO GEN</text>
+  <text x="350" y="378" text-anchor="middle" fill="#e2e8f0" font-size="12">Model Routing</text>
+  <text x="350" y="396" text-anchor="middle" fill="#94a3b8" font-size="11">Seedance / Kling / Local</text>
+
+  <!-- 7 Continuity -->
+  <rect x="480" y="325" width="180" height="88" rx="12" fill="#1e293b" stroke="#2dd4bf" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="570" y="355" text-anchor="middle" fill="#2dd4bf" font-size="14" font-weight="700">7. CONTINUITY</text>
+  <text x="570" y="378" text-anchor="middle" fill="#e2e8f0" font-size="12">Critic + Metrics</text>
+  <text x="570" y="396" text-anchor="middle" fill="#94a3b8" font-size="11">Identity / Style / Motion</text>
+
+  <!-- 8 Gate B -->
+  <rect x="700" y="325" width="180" height="88" rx="12" fill="#1e293b" stroke="#f87171" stroke-width="3" filter="url(#shadow)"/>
+  <text x="790" y="350" text-anchor="middle" fill="#f87171" font-size="13" font-weight="700">8. HUMAN GATE B</text>
+  <text x="790" y="372" text-anchor="middle" fill="#e2e8f0" font-size="12">Approve Clips</text>
+  <text x="790" y="390" text-anchor="middle" fill="#fca5a5" font-size="11">or Force Re-gen</text>
+  <text x="790" y="405" text-anchor="middle" fill="#94a3b8" font-size="10">Per-shot control</text>
+
+  <!-- 9 Assembly -->
+  <rect x="920" y="325" width="180" height="88" rx="12" fill="#1e293b" stroke="#60a5fa" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="1010" y="355" text-anchor="middle" fill="#60a5fa" font-size="14" font-weight="700">9. ASSEMBLY</text>
+  <text x="1010" y="378" text-anchor="middle" fill="#e2e8f0" font-size="12">Remotion Code</text>
+  <text x="1010" y="396" text-anchor="middle" fill="#94a3b8" font-size="11">Source of Truth</text>
+
+  <!-- Arrows Row 2 -->
+  <line x1="130" y1="223" x2="130" y2="325" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="220" y1="369" x2="260" y2="369" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="440" y1="369" x2="480" y2="369" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="660" y1="369" x2="700" y2="369" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="880" y1="369" x2="920" y2="369" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Reject from Gate B -->
+  <path d="M790,413 L790,445 L350,445 L350,413" fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-red)"/>
+  <text x="570" y="438" fill="#f87171" font-size="11" font-weight="600">Reject → Re-generate</text>
+
+  <!-- ========== ROW 3: Post + Package ========== -->
+  <text x="40" y="500" fill="#64748b" font-size="13" font-weight="600" letter-spacing="1">POST-PRODUCTION &amp; PACKAGING</text>
+
+  <!-- 10 Audio -->
+  <rect x="40" y="515" width="180" height="88" rx="12" fill="#1e293b" stroke="#a3e635" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="130" y="545" text-anchor="middle" fill="#a3e635" font-size="14" font-weight="700">10. AUDIO</text>
+  <text x="130" y="568" text-anchor="middle" fill="#e2e8f0" font-size="12">EN / Putonghua</text>
+  <text x="130" y="586" text-anchor="middle" fill="#94a3b8" font-size="11">Cantonese TTS + Mix</text>
+
+  <!-- 11 Subtitles -->
+  <rect x="260" y="515" width="180" height="88" rx="12" fill="#1e293b" stroke="#e879f9" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="350" y="545" text-anchor="middle" fill="#e879f9" font-size="14" font-weight="700">11. SUBTITLES</text>
+  <text x="350" y="568" text-anchor="middle" fill="#e2e8f0" font-size="12">EN / SC / TC</text>
+  <text x="350" y="586" text-anchor="middle" fill="#94a3b8" font-size="11">Soft + Burned</text>
+
+  <!-- 12 Packaging -->
+  <rect x="480" y="515" width="180" height="88" rx="12" fill="#1e293b" stroke="#fbbf24" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="570" y="545" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">12. PACKAGING</text>
+  <text x="570" y="568" text-anchor="middle" fill="#e2e8f0" font-size="12">Logo / Highlight</text>
+  <text x="570" y="586" text-anchor="middle" fill="#94a3b8" font-size="11">Roster / Egg / End</text>
+
+  <!-- 13 Metadata -->
+  <rect x="700" y="515" width="180" height="88" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="790" y="545" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="700">13. METADATA</text>
+  <text x="790" y="568" text-anchor="middle" fill="#e2e8f0" font-size="12">YT Chapters + Title</text>
+  <text x="790" y="586" text-anchor="middle" fill="#94a3b8" font-size="11">Thumbnail Package</text>
+
+  <!-- 14 Final Gate -->
+  <rect x="920" y="515" width="180" height="88" rx="12" fill="#1e293b" stroke="#4ade80" stroke-width="3" filter="url(#shadow)"/>
+  <text x="1010" y="545" text-anchor="middle" fill="#4ade80" font-size="14" font-weight="700">14. FINAL GATE</text>
+  <text x="1010" y="568" text-anchor="middle" fill="#e2e8f0" font-size="12">Human Sign-off</text>
+  <text x="1010" y="586" text-anchor="middle" fill="#86efac" font-size="11">→ Publish</text>
+
+  <!-- Arrows Row 3 -->
+  <line x1="1010" y1="413" x2="1010" y2="515" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="220" y1="559" x2="260" y2="559" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="440" y1="559" x2="480" y2="559" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="660" y1="559" x2="700" y2="559" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="880" y1="559" x2="920" y2="559" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- ========== AGENT LAYER ========== -->
+  <rect x="40" y="640" width="1060" height="100" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+  <text x="570" y="670" text-anchor="middle" fill="#94a3b8" font-size="14" font-weight="700">MULTI-AGENT LAYER (always active across all phases)</text>
+  <text x="570" y="695" text-anchor="middle" fill="#cbd5e1" font-size="13">Orchestrator  •  Shot Designer  •  Continuity Supervisor  •  Critic Council  •  Style Director  •  Audio Director  •  Assembly Agent  •  Localization Agent</text>
+  <text x="570" y="720" text-anchor="middle" fill="#64748b" font-size="12">Shared Visual Bible memory + structured critic loops + quantitative consistency metrics. Human can intervene at any gate.</text>
+
+  <!-- ========== SIDE PANEL: Local vs Hybrid ========== -->
+  <rect x="1140" y="135" width="420" height="280" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+  <text x="1350" y="165" text-anchor="middle" fill="#38bdf8" font-size="15" font-weight="700">LOCAL-FIRST (Low Cost)</text>
+  <text x="1160" y="195" fill="#94a3b8" font-size="13">• Reference extraction &amp; cutting</text>
+  <text x="1160" y="218" fill="#94a3b8" font-size="13">• Keyframe description (VLM)</text>
+  <text x="1160" y="241" fill="#94a3b8" font-size="13">• Wireframe / sketch generation</text>
+  <text x="1160" y="264" fill="#94a3b8" font-size="13">• Animatic assembly</text>
+  <text x="1160" y="287" fill="#94a3b8" font-size="13">• Continuity scoring</text>
+  <text x="1160" y="310" fill="#94a3b8" font-size="13">• Base TTS &amp; subtitles</text>
+  <text x="1160" y="340" fill="#64748b" font-size="12">yt-dlp • FFmpeg • OpenCLIP</text>
+  <text x="1160" y="360" fill="#64748b" font-size="12">Whisper • Qwen2.5-VL • ControlNet</text>
+  <text x="1160" y="380" fill="#64748b" font-size="12">AnimateDiff • Remotion</text>
+
+  <rect x="1140" y="435" width="420" height="200" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+  <text x="1350" y="465" text-anchor="middle" fill="#fbbf24" font-size="15" font-weight="700">HYBRID / HERO GENERATION</text>
+  <text x="1160" y="495" fill="#94a3b8" font-size="13">• Final colored video clips</text>
+  <text x="1160" y="518" fill="#94a3b8" font-size="13">• Complex motion &amp; lip-sync</text>
+  <text x="1160" y="541" fill="#94a3b8" font-size="13">• Highest fidelity hero shots</text>
+  <text x="1160" y="575" fill="#64748b" font-size="12">Seedance 2.x • Kling 3.x</text>
+  <text x="1160" y="595" fill="#64748b" font-size="12">Veo 3.x • LTX • Wan (local when possible)</text>
+
+  <!-- ========== KEY RULES ========== -->
+  <rect x="40" y="770" width="1520" height="120" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="60" y="800" fill="#f8fafc" font-size="14" font-weight="700">KEY CONTROL RULES</text>
+  <text x="60" y="825" fill="#cbd5e1" font-size="13">1. Visual Bible is locked after Phase 2 — any change requires version bump + re-validation of dependent shots.</text>
+  <text x="60" y="848" fill="#cbd5e1" font-size="13">2. Gate A (Wireframe Animatic) is a hard gate: no commercial video generation is allowed before human approval.</text>
+  <text x="60" y="871" fill="#cbd5e1" font-size="13">3. Continuity Supervisor enforces quantitative thresholds (face ≥0.72 ArcFace, CLIP ≥0.78, lighting angle ≤35°). Failures escalate to human after 4 attempts.</text>
+
+  <!-- Footer -->
+  <text x="800" y="940" text-anchor="middle" fill="#475569" font-size="13">video-pipeline-workflow.svg  •  Part of video-flow.md v1.1  •  2026-08-19</text>
+  <text x="800" y="965" text-anchor="middle" fill="#334155" font-size="12">All phases share production memory. Agents operate under strict behavioral contracts defined in Section 1.5.</text>
+  <text x="800" y="990" text-anchor="middle" fill="#1e293b" font-size="11">Designed for local-first execution with selective hybrid generation for quality-critical shots.</text>
+</svg>

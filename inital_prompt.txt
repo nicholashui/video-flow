@@ -1,0 +1,174 @@
+AI Video Generation Pipeline: Professional Project Brief
+
+## 1. Objective
+
+Design and implement a complete, low-cost, local-first video production pipeline. The pipeline must transform an approved storyline, scene-by-scene shooting instructions, and selected reference videos into a finished, multilingual, publication-ready video.
+
+The system must support structured production, repeatable agent workflows, objective quality checks, and human approval at the critical creative stages. It must preserve continuity across characters, props, environments, visual style, camera language, sound, and narrative intent.
+
+## 2. Existing Inputs
+
+The project already contains:
+
+- A complete storyline.
+- A list of shooting instructions for each scene or shot.
+- Item descriptions that may contain multiple elements.
+- A `when`, `what`, and `how` description for each shot, object, or environment.
+- YouTube Shorts or video references for visual and cinematographic guidance.
+
+Reference videos may contain irrelevant material at the beginning or end. Only the segment relevant to the corresponding shooting instruction should be retained and analyzed.
+
+## 3. Core Requirements
+
+### 3.1 Reference Video Processing
+
+1. Download each approved reference video or accept a user-provided local video file.
+2. Identify the segment that is relevant to the associated shooting instruction.
+3. Extract only the relevant segment for downstream processing.
+4. Propose and evaluate a low-cost local extraction algorithm before implementation. The solution should prioritize local tools, explain its accuracy and failure modes, and use human confirmation when confidence is low.
+5. Preserve the source URL, extraction timestamps, confidence score, and processing log for every reference.
+
+### 3.2 Keyframe and Cinematography Analysis
+
+For every approved reference segment:
+
+1. Extract representative keyframes.
+2. Produce a detailed description for each keyframe.
+3. Describe the transition, movement, and visual relationship between consecutive keyframes.
+4. Analyze all relevant filmmaking characteristics, including:
+	- Composition and blocking.
+	- Subject, object, and environment details.
+	- Camera position, angle, lens, framing, and movement.
+	- Lighting direction, quality, contrast, and color temperature.
+	- Color palette, visual style, texture, and production design.
+	- Motion, pacing, editing rhythm, and continuity.
+	- Diegetic sound, music, speech, silence, and sound effects.
+	- Weather, atmosphere, materials, and environmental conditions.
+5. Store the analysis in a structured format that can be reused by design and generation agents.
+
+### 3.3 Visual Bible and Shot Design
+
+Based on the storyline, shooting instructions, and reference analysis:
+
+1. Create a visual bible covering characters, props, locations, wardrobe, lighting, color, camera language, sound, and overall style.
+2. Design a new visual setting for every shot without copying the reference material directly.
+3. Produce a complete text description for each shot.
+4. Produce a wireframe for each shot. A black-and-white sketch is acceptable for the initial version.
+5. Produce keyframe images and define the intended transition between each pair of keyframes.
+6. Ensure that the design preserves the original narrative purpose and shooting instruction.
+7. Track identity and continuity requirements for recurring characters, objects, locations, and visual motifs.
+
+### 3.4 Multi-Agent Review and Iteration
+
+Use a group of specialized agents to review every shot. At minimum, the workflow should include roles for:
+
+- Creative or shot design.
+- Cinematography and composition.
+- Character and prop continuity.
+- Environment and production design.
+- Motion and transition design.
+- Sound and music planning.
+- Narrative and pacing review.
+- Technical quality assurance.
+
+Each reviewer must provide structured feedback, identify failed requirements, and propose actionable revisions. The design agent must revise the shot based on the feedback and repeat the review cycle until the quality criteria are met or the issue is escalated to a human.
+
+## 4. Production Workflow
+
+Implement the following controlled workflow:
+
+1. Validate the storyline, shooting instructions, references, and required metadata.
+2. Extract and analyze the relevant portions of the reference videos.
+3. Generate the visual bible and shot-level design specifications.
+4. Generate wireframes, keyframes, and keyframe transitions.
+5. Assemble the wireframes into a complete animatic with temporary sound, timing, and pacing.
+6. Pause for human review. Allow the human reviewer to request changes to individual shots or the complete sequence.
+7. Apply detailed style, color, texture, imagery, and motion treatment to each approved wireframe.
+8. Generate the individual video clips.
+9. Run continuity, cinematography, narrative, audio, and technical quality checks.
+10. Pause for a second human review of the generated clips and the assembled sequence.
+11. Regenerate or revise only the affected shots when changes are requested.
+12. Assemble all approved video clips into a master video with sound and speech.
+
+The workflow must be resumable. Every stage must record its inputs, outputs, decisions, versions, errors, and approval status.
+
+## 5. Audio, Localization, and Packaging
+
+The final production must support:
+
+1. English speech and subtitles.
+2. Putonghua speech and Simplified Chinese subtitles.
+3. Cantonese speech and Traditional Chinese subtitles.
+4. Synchronized subtitle files and, where required, burned-in subtitle versions.
+5. A highlight or teaser at the beginning.
+6. An introduction logo or bumper at the beginning.
+7. A roster or credit sequence at the end.
+8. An optional Easter egg at the end.
+9. A final end image or end card.
+10. Appropriate sound effects, music, narration, and dialogue.
+
+Localization must preserve the original meaning, emotional intent, timing, and cultural context. The system must not invent dialogue or alter the story without approval.
+
+## 6. YouTube Publication Package
+
+Generate a complete publication package containing:
+
+- Video title.
+- Short description.
+- Long description.
+- Keywords, tags, and hashtags.
+- Chapter markers or breakpoints for navigation and indexing.
+- Thumbnail or cover image.
+- End-screen recommendations.
+- Playlist or series information where applicable.
+- Language and subtitle metadata.
+- Technical metadata and licensing notes.
+
+The system must wait for explicit human final approval before publication. Publishing to the internet must be a separate, auditable action that cannot occur automatically without that approval.
+
+## 7. Quality, Cost, and Safety Expectations
+
+The implementation plan must define:
+
+- Objective continuity and quality criteria.
+- Maximum automatic regeneration attempts per shot.
+- Human escalation rules.
+- Local versus commercial processing decisions.
+- Estimated compute time and commercial API cost.
+- Privacy and data-retention rules for downloaded references.
+- Copyright and fair-use considerations for reference material.
+- Recovery procedures for failed downloads, model errors, incomplete outputs, and rejected reviews.
+- Versioning and reproducibility for prompts, models, seeds, assets, and decisions.
+- An audit trail for every agent action and human approval.
+
+The default architecture should use low-cost local processing for downloading, trimming, keyframe extraction, analysis, wireframes, animatics, subtitle preparation, and assembly whenever practical. Commercial services should be reserved for tasks where local quality is insufficient and must be subject to an explicit budget limit.
+
+## 8. Research and Deliverables
+
+Conduct thorough research using current, reliable resources. Evaluate relevant open-source tools, video-processing libraries, local AI models, agent frameworks, storage options, workflow orchestrators, and video-generation services. Compare alternatives by quality, cost, hardware requirements, licensing, privacy, reliability, and integration complexity.
+
+Produce a detailed implementation plan that includes:
+
+1. A formal requirements specification.
+2. The proposed system architecture.
+3. Component and agent responsibilities.
+4. Input and output schemas.
+5. Data model and asset-management strategy.
+6. Reference-video extraction algorithm.
+7. Keyframe-analysis workflow.
+8. Wireframe and animatic workflow.
+9. Multi-agent review and approval protocol.
+10. Video-generation and assembly workflow.
+11. Localization and subtitle workflow.
+12. YouTube packaging and publication workflow.
+13. Quality gates and measurable acceptance criteria.
+14. Cost, performance, privacy, and security controls.
+15. Failure handling, retry policies, and recovery procedures.
+16. A phased implementation roadmap with milestones and test strategy.
+17. Risks, assumptions, open questions, and recommended decisions.
+
+## 9. Output Format
+
+Write the final implementation plan to `video-flow.md`.
+
+The document must be professional, highly detailed, and implementation-oriented. Include an embedded SVG workflow diagram in the Markdown document, together with an accessible text description of the diagram. The plan must distinguish clearly between automated processing, agent decisions, human approval gates, and the final publication action.
